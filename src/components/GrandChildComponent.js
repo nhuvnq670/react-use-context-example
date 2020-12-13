@@ -1,25 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { ThemeContext } from '../App'
 
-class GrandChildComponent extends React.Component {
-  render(){
-    return (
-      <ThemeContext.Consumer>
-        {
-          ({theme, setTheme}) => {
-            return (
-              <>
-                <div>The theme is {theme}</div>
-                <button onClick={() => setTheme('light')}>
-                  Change to Light theme
-                </button>
-              </>
-            )
-          }
-        }
-      </ThemeContext.Consumer>
-    )
-  }
+function GrandChildComponent() {
+  const {theme, setTheme} = useContext(ThemeContext)
+
+  return (
+    <>
+      <div>The theme is {theme}</div>
+      <button onClick={() => setTheme('light')}>
+        Change to Light theme
+      </button>
+    </>
+  )
 }
 
 export default GrandChildComponent
